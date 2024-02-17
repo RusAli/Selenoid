@@ -1,5 +1,5 @@
 #  Настройка и установка Selenoid
-1. Установить Docker и прописать команды:
+## 1. Установить Docker и прописать команды:
      - ```sh
        sudo useradd -aG docker $USER
        ```
@@ -10,7 +10,7 @@
        sudo systemctl restart docker
        ```
   
-2. Создаем папку в пути /home/user
+## 2. Создаем папку в пути /home/user
    - ```sh
      mkdir selenoid
      ```
@@ -52,21 +52,20 @@
 }
 ```
     
-4. Создаем network для 2-ух контейнеров
+## 3. Создаем network для 2-ух контейнеров
    - ```sh
      docker network create selenoid
      ```
    - ```sh
      docker network create selenoid2
      ```
-5. Запускаем докер контейнеры
-   
-    - ```sh
+## 4. Запускаем докер контейнеры
+   - ```sh
       docker run -d --rm --network selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /home/user/selenoid/browsers.json:/etc/selenoid/browsers.json:ro aerokube/selenoid:1.11.2 -container-network=selenoid -limit 12
       ```
-    - ```sh
+   - ```sh
       docker run -d --rm --network selenoid2 --name selenoid2 -p 4446:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /home/user/selenoid/browsers.json:/etc/selenoid/browsers.json:ro aerokube/selenoid:1.11.2 -container-network=selenoid2 -limit 12
       ```
-7. 
+## 5.  
  
 
