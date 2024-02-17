@@ -79,6 +79,14 @@
    - ```sh
      sudo mkdir -p /etc/grid-router/quota/
      ```
+   - Переходим в папку grid-router и создаем htpasswd
+      ```sh
+     cd /etc/grid-router/
+     ```
+      ```sh
+     sudo htpasswd -bc /etc/grid-router/users.htpasswd test test
+     ```
+     
  ## 6. Предустановка для GGR
  
 
