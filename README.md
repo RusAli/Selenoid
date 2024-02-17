@@ -84,7 +84,7 @@
      cd /etc/grid-router/
      ```
       ```sh
-     sudo htpasswd -bc /etc/grid-router/users.htpasswd test test
+     sudo htpasswd -bc /etc/grid-router/users.htpasswd test test-password
      ```
      
  ## 6. Предустановка для GGR
