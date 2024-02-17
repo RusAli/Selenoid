@@ -86,6 +86,36 @@
       ```sh
      sudo htpasswd -bc /etc/grid-router/users.htpasswd test test-password
      ```
+  - Создаем в папке grid-router файл test.xml ( test это имя пользователя из htpasswd)
+  
+    ```sh
+     sudo vim /etc/grid-router/quota/test.xml
+     ```
+
+    С содержанием:
+
+    ```xml
+          <qa:browsers
+	          xmlns:qa="urn:config.gridrouter.qatools.ru">
+	          <browser name="chrome" defaultVersion="121.0">
+		          <version number="121.0">
+			          <region name="1">
+				          <host name="172.18.0.1" port="4445" count="1"/>
+				          <host name="172.19.0.1" port="4446" count="2"/>
+			          </region>
+		          </version>
+		          <version number="120.0">
+			          <region>
+				          <host name="172.18.0.1" port="4445" count="1"/>
+				          <host name="172.19.0.1" port="4446" count="2"/>
+			          </region>
+		          </version>
+	          </browser>
+          </qa:browsers>
+    ```
+> [!NOTE]
+> host name - это Network-Gateway наших поднятых контейнеров selenoid и selenoid2 (docker inspect selenoid)
+    
      
  ## 6. Предустановка для GGR
  
