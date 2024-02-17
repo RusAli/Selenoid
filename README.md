@@ -161,8 +161,10 @@ mkdir nginx
 Поднимаем nginx
 
 ```sh
-docker run -d --rm --name nginx -v /home/user/nginx:/etc/nginx/conf.d:ro -d --network=host nginx
+docker run -d --rm --name nginx -v /home/user/selenoid/nginx:/etc/nginx/conf.d:ro -d --network=host nginx
 ```
+> [!NOTE]
+> Указать путь до файла .conf
 
 
 
