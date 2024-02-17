@@ -1,14 +1,14 @@
 #  Настройка и установка Selenoid
 ## 1. Установить Docker и прописать команды:
-     - ```sh
+   - ```sh
        sudo useradd -aG docker $USER
-       ```
-     - ```sh
+     ```
+   - ```sh
        sudo chmod 666 /var/run/docker.sock
-       ```
-     - ```sh
+     ```
+   - ```sh
        sudo systemctl restart docker
-       ```
+     ```
   
 ## 2. Создаем папку в пути /home/user
    - ```sh
