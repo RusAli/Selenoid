@@ -117,6 +117,25 @@
 > host name - это Network-Gateway наших поднятых контейнеров selenoid и selenoid2 (docker inspect selenoid)
     
      
- ## 6. Предустановка для GGR
+ ## 6. Поднимаем докер GGR
+
+```sh
+docker run -d --rm --name ggr -v /etc/grid-router/:/etc/grid-router:ro -p 4444:4444 aerokube/ggr:1.7.2 -guests-allowed -guests-quota "test" -verbose -quotaDir /etc/grid-router/quota
+```
+> [!NOTE]
+> "test" - это имя пользователя из htpasswd
+
+## 7. Поднимаем докер GGR-UI
+```sh
+docker run -d --rm --name ggr-ui -p 8888:8888 -v /etc/grid-router/quota/:/etc/grid-router/quota:ro aerokube/ggr-ui:1.2.0
+```
+> [!NOTE]
+> Проверяем что ```curl -s http://127.0.0.1:8888/status``` возвращает json
+> ```{"chrome":{"120.0":{},"121.0":{}},"opera":{"105.0":{},"106.0":{}}},"pending":0,"queued":0,"total":24,"used":0}```
+
+
+
+
+ 
  
 
