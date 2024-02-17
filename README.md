@@ -69,6 +69,16 @@
    - ```sh
       docker run -d --rm --network selenoid2 --name selenoid2 -p 4446:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /home/user/selenoid/browsers.json:/etc/selenoid/browsers.json:ro aerokube/selenoid:1.11.2 -container-network=selenoid2 -limit 12
       ```
-## 5.  
+## 5. Предустановка для GGR
+   - ```sh
+     sudo apt update
+     ```
+   - ```sh
+     sudo apt install apache2-utils
+     ```
+   - ```sh
+     sudo mkdir -p /etc/grid-router/quota/
+     ```
+ ## 6. Предустановка для GGR
  
 
