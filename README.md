@@ -60,6 +60,9 @@
      docker network create selenoid2
      ```
 ## 4. Запускаем докер контейнеры
+
+> [!NOTE]
+> Указать созданный network и правильно указать путь до файла browsers.json
    - ```sh
       docker run -d --rm --network selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /home/user/selenoid/browsers.json:/etc/selenoid/browsers.json:ro aerokube/selenoid:1.11.2 -container-network=selenoid -limit 12
       ```
