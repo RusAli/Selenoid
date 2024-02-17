@@ -133,6 +133,36 @@ docker run -d --rm --name ggr-ui -p 8888:8888 -v /etc/grid-router/quota/:/etc/gr
 > Проверяем что ```curl -s http://127.0.0.1:8888/status``` возвращает json
 > ```{"chrome":{"120.0":{},"121.0":{}},"opera":{"105.0":{},"106.0":{}}},"pending":0,"queued":0,"total":24,"used":0}```
 
+## 8. Запускаем Selenoid-UI
+
+Берем Network-Gateway из ggr-ui 
+```sh
+docker inspect ggr-ui
+```
+
+```sh
+docker run -d --rm --name selenoid-ui -p 8080:8080 aerokube/selenoid-ui:1.10.11 --selenoid-uri http://172.17.0.1:8888
+```
+> [!NOTE]
+> --selenoid-uri - это Network-Gateway из ggr-ui
+ 
+ ## 9. Запускаем NGNIX
+
+Создаем папку в директории /home/user/selenoid/
+
+```sh
+mkdir nginx
+```
+Создаем в созданной директории nginx файл с расширением .conf
+
+```sh
+mkdir nginx
+```
+Поднимаем nginx
+
+```sh
+docker run -d --rm --name nginx -v /home/user/nginx:/etc/nginx/conf.d:ro -d --network=host nginx
+```
 
 
 
